@@ -3,27 +3,28 @@ require 'swagger_helper'
 
 describe 'Seats API' do
 
-  path '/api/v1/seats' do
+  path '/api/v1/create_and_fill_seats' do
 
     post 'Creates and fill seats' do
       tags 'Seats'
       consumes 'application/json'
-      parameter seats: :passengers, in: :body, schema: {
+      parameter name: :create_and_fill_seats, in: :body, schema: {
         type: :object,
         properties: {
-          seats: { type: :string },
-          passengers: { type: :integer }
+          seats: { type: :array, items: [], description: "A 2D Array that represents the rows and columns: [[3,4], [4,5],
+[2,3], [3,4]]" },
+          passengers: { type: :integer, description: "The number of passengers waiting in the queue" }
         },
         required: [ 'seats', 'passengers' ]
       }
 
       response '201', 'seat created' do
-        let(:seat) { { seat: 'Dodo' } }
+        let(:seat) { { seats: 'Dodo' } }
         run_test!
       end
 
       response '422', 'invalid request' do
-        let(:seat) { { seat: 'foo' } }
+        let(:seat) { { seats: 'foo' } }
         run_test!
       end
     end

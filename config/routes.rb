@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-    	resources :seats
+    	post 'create_and_fill_seats', to: 'seats#create_and_fill_seats', as: 'create_and_fill_seats'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
