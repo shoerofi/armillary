@@ -1,0 +1,49 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/seats": {
+      "post": {
+        "summary": "Creates and fill seats",
+        "tags": [
+          "Seats"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "seats": "passengers",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "seats": {
+                  "type": "string"
+                },
+                "passengers": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "seats",
+                "passengers"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "seat created"
+          },
+          "422": {
+            "description": "invalid request"
+          }
+        }
+      }
+    }
+  }
+}
