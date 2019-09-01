@@ -20,12 +20,12 @@ Output:
 
 Installation:
 
-- Install the lates ruby 2.6.3
+- Install ruby 2.5.5
 - run Bundle command
 - run rails db:create db:migrate
 - run rails server
 
 Api-Doc and Testing:
 
-- api-doc and testing: navigate to /api-docs
+- api-doc and testing: navigate to /api-docs, click api that you want to test, click 'try it out', fill the value and klik execute
 - details api documentation: /api-docs/v1/swagger.json
