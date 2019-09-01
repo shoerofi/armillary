@@ -11,8 +11,7 @@ describe 'Seats API' do
       parameter name: :create_and_fill_seats, in: :body, schema: {
         type: :object,
         properties: {
-          seats: { type: :array, items: [], description: "A 2D Array that represents the rows and columns: [[3,4], [4,5],
-[2,3], [3,4]]" },
+          seats: { type: :array, items: [], description: "A 2D Array that represents the rows and columns [x,y]: [[3,4], [4,5], [2,3], [3,4]]" },
           passengers: { type: :integer, description: "The number of passengers waiting in the queue" }
         },
         required: [ 'seats', 'passengers' ]
@@ -23,7 +22,7 @@ describe 'Seats API' do
         run_test!
       end
 
-      response '422', 'invalid request' do
+      response '422', 'failed request' do
         let(:seat) { { seats: 'foo' } }
         run_test!
       end

@@ -49,3 +49,5 @@ group :development, :test do
 end
 
 gem 'rswag'
+
+gem 'active_model_serializers', '~> 0.10.0'
